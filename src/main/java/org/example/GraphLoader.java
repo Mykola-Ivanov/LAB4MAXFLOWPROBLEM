@@ -6,7 +6,6 @@ import java.util.*;
 
 public class GraphLoader {
     private int [][] adjacencyMatrix;
-    private LinkedList<Integer>[] adjacencyList;
     public GraphLoader(String path,boolean printGraphToConsole) throws FileNotFoundException{
         Scanner fileReader = new Scanner(new File(path));
         int size = fileReader.nextInt();
@@ -22,22 +21,9 @@ public class GraphLoader {
             if(printGraphToConsole)
                 System.out.println();
         }
-        adjacencyList = new LinkedList[size];
-        for (int i=0;i< adjacencyList.length;i++) {
-            adjacencyList[i] = new LinkedList<>();
-        }
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if(adjacencyMatrix[i][j] != 0){
-                    adjacencyList[i].add(j);
-                }
-            }
-        }
     }
     public int[][] getAdjacencyMatrix() {
         return adjacencyMatrix;
     }
-    public LinkedList<Integer>[] getAdjacencyList(){
-        return adjacencyList;
-    }
+
 }
